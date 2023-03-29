@@ -1,4 +1,4 @@
-import { createContext, useState, useMemo } from "react";
+import { createContext, useState, useMemo, useCallback } from "react";
 import { createTheme } from "@mui/material/styles";
 
 // color design tokens
@@ -209,7 +209,7 @@ export const useMode = () => {
     []
   );
 
-  const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
+  const theme = useCallback(createTheme(themeSettings(mode)), [mode]);
 
   return [theme, colorMode];
 };
